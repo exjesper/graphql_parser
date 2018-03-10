@@ -1,7 +1,7 @@
 defmodule GraphQL.Parser.Mixfile do
   use Mix.Project
 
-  @version "0.0.3"
+  @version "0.0.4"
 
   def project do
     [app: :graphql_parser,
@@ -11,10 +11,10 @@ defmodule GraphQL.Parser.Mixfile do
      compilers: [:nif] ++ Mix.compilers,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     description: description,
-     package: package,
-     docs: docs,
-     deps: deps]
+     description: description(),
+     package: package(),
+     docs: docs(),
+     deps: deps()]
   end
 
   def application do
@@ -22,7 +22,7 @@ defmodule GraphQL.Parser.Mixfile do
   end
 
   defp deps do
-    [{:poison, "~> 2.0"},
+    [{:poison, "~> 3.1"},
      {:earmark, "~> 0.1", only: :dev},
      {:ex_doc, "~> 0.11", only: :dev}]
   end
